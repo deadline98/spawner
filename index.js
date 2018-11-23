@@ -122,7 +122,7 @@ export function ApiSpawner(options) {
   }
 
   const createReq = reqOptions => {
-    if (spawnerOptions.base.constructor.name === "ApiService") {
+    if (spawnerOptions.base["_isApiService"]) {
       return spawnerOptions.base.doRequest(reqOptions || {})
     } else {
       const mergedOptions = mergeOptions([
